@@ -30,6 +30,18 @@ int main(int argc, char** argv) { //take port number from user ; udpserver.exe 1
 	if (ret == SOCKET_ERROR) quit("connect");		// i 
 	printf("Got the server!\n");					// while loop this part -> SYN Flood
 	while (1) {
+		//char buf[1000] = { 0 };
+		char buf[1000] = { 0 }; //"GET /~gc/index.html HTTP/1.1\r\nHost: ww.cc.puv.fi\r\n\r\n"; // recieve 1000 bytes of data
+		printf("Client to send (starting '#' with terminate): ");
+		/*printf("Client to send: ");*/
+		fgets(buf, 1000, stdin);
+		ret = send(s, buf, strlen(buf), 0);
+		if (ret == SOCKET_ERROR) quit("send");
+		if (buf[0] == '#') break;
+		memset(buf, 0, 1000);
+		ret = recv(s, buf, 1000, 0);
+		if (ret == SOCKET_ERROR) quit("recv");
+		printf("\tServer:: %s\n", buf);
 	}
-
+	closesocket(s);
 }
