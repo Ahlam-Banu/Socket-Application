@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{d929b233-d90f-4cd5-9ed8-ed87af886786}</ProjectGuid>
-    <RootNamespace>SocketProgramming</RootNamespace>
+    <RootNamespace>UDPserver</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>UDPserver</ProjectName>
   </PropertyGroup>
